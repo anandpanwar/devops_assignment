@@ -1,0 +1,24 @@
+stages:
+  - build
+  - deploy
+
+build-uppercase:
+  image: alpine:latest
+  stage: build
+  script:
+    - mkdir -p build
+    - cp -r website-src/* build/
+    - awk '{print toupper($0)}' website-src/index.html > build/index.html
+  artifacts:
+    paths:
+      - build/
+
+deploy:
+  image: python:3.11-alpine
+  stage: deploy
+  script:
+    - pip install awscli
+    - aws s3 sync build/ s3://$S3_BUCKET/ --region $AWS_DEFAULT_REGION
+    - aws autoscaling start-instance-refresh --auto-scaling-group-name $ASG_NAME
+  only:
+    - main

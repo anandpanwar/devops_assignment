@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nphc-site
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nphc-site
+  template:
+    metadata:
+      labels:
+        app: nphc-site
+    spec:
+      containers:
+      - name: web
+        image: registry.gitlab.com/<username>/nphc-site:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: FIRST_NAME
+          value: "John"

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nphc-site-config
+  labels:
+    app: nphc-site
+data:
+  # Change this to your own name; the nginx container picks it up and displays it
+  FIRST_NAME: "Anand"

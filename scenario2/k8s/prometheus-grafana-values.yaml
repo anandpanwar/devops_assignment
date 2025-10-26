@@ -1,0 +1,24 @@
+# Minimal values for kube-prometheus-stack
+# helm install monitoring prometheus-community/kube-prometheus-stack -f prometheus-grafana-values.yaml
+
+grafana:
+  adminUser: admin
+  adminPassword: admin123   # don't use this in prod obviously
+  service:
+    type: NodePort
+    nodePort: 32000
+  defaultDashboardsEnabled: true
+  persistence:
+    enabled: false
+
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 32001
+  prometheusSpec:
+    retention: 2d
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+alertmanager:
+  service:
+    type: ClusterIP
