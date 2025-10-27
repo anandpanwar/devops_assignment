@@ -1,11 +1,10 @@
-# NPHC DevOps Engineer Assignment
+# DevOps Engineer Assignment
 
-This repo contains my submission for the NPHC DevOps Engineer assignment.  
-I split it into two main parts — one for AWS (Scenario 1) and one for Kubernetes (Scenario 2).
+This repo contains two main parts — one for AWS (Scenario 1) and one for Kubernetes (Scenario 2).
 
 ---
 
-## 🚀 Scenario 1 – AWS Infra + Terraform + GitLab CI/CD
+## Scenario 1 – AWS Infra + Terraform + GitLab CI/CD
 
 ### What I did
 For this part, I used Terraform to set up the whole infrastructure on AWS.  
